@@ -9,5 +9,6 @@ require (
 	github.com/go-chi/chi v1.5.4 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect
+	github.com/stretchr/testify v1.7.0 // indirect
 	golang.org/x/sys v0.0.0-20210324051608-47abb6519492 // indirect
 )

@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	infrastructure "github.com/kazuki0924/go-chi/infrastructure/router"
+	router "github.com/kazuki0924/go-chi/infrastructure/router"
 )
 
 var (
-	httpRouter infrastructure.Router = infrastructure.NewChiRouter()
+	httpRouter router.Router = router.NewChiRouter()
 )
 
 func main() {
