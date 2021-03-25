@@ -4,11 +4,15 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/kazuki0924/go-chi/controller"
 	router "github.com/kazuki0924/go-chi/infrastructure/router"
+	"github.com/kazuki0924/go-chi/service"
 )
 
 var (
-	httpRouter router.Router = router.NewChiRouter()
+	carDetailsService    service.CarDetailsService       = service.NewCarDetailsService()
+	carDetailsController controller.CarDetailsController = controller.NewCarDetailsController(carDetailsService)
+	httpRouter           router.Router                   = router.NewChiRouter()
 )
 
 func main() {
@@ -18,9 +22,7 @@ func main() {
 		fmt.Fprintln(w, "Up and running...")
 	})
 
-	httpRouter.GET("/carDetails", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprintln(w, "test")
-	})
+	httpRouter.GET("/carDetails", carDetailsController.GetCarDetails)
 
 	httpRouter.SERVE(port)
 }
